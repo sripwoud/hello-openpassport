@@ -1,4 +1,3 @@
-'use client'
 import { type OpenPassport1StepInputs, OpenPassportQRcode, type OpenPassportVerifierReport } from '@openpassport/sdk'
 import { config } from 'config'
 

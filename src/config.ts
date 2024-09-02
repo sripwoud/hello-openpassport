@@ -7,5 +7,5 @@ interface Config {
 export const config: Config = {
   appTitle: 'Hello OpenPassport',
   scope: '@hello_openpassport',
-  userId: 'sripwoud',
+  userId: crypto.randomUUID(),
 }
