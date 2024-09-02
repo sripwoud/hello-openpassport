@@ -1,15 +1,22 @@
 {
-  "include": ["src", "test"],
-  "exclude": ["test/coverage"],
+  "include": [
+    "src",
+    "test",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "test/coverage"
+  ],
   "compilerOptions": {
     "noEmit": true,
-
-    "baseUrl": ".",
-    "lib": ["ESNext"],
+    "baseUrl": "src",
+    "lib": [
+      "ESNext"
+    ],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-
     "allowImportingTsExtensions": true,
     "allowJs": true,
     "checkJs": true,
@@ -17,7 +24,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "moduleDetection": "force",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -29,15 +36,22 @@
     "noUnusedParameters": true,
     "useUnknownInCatchVariables": true,
     "strict": true,
-
-    "paths": {
-      "@mod": ["src/mod"],
-      "@mod/*": ["src/mod/*"]
-    },
-
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-
-    "types": ["bun-types"]
+    "types": [
+      "bun-types"
+    ],
+    "incremental": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "paths": {
+      "c/*": ["components/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   }
 }
