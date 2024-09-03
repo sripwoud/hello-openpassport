@@ -1,16 +1,10 @@
-import { type OpenPassport1StepInputs, OpenPassportQRcode, type OpenPassportVerifierReport } from '@openpassport/sdk'
-import { config } from 'config'
+import { OpenPassportQRcode } from '@openpassport/sdk'
+import { config } from 'l/config'
+import type { OnSuccessCb } from 'l/types'
 
-export const QRCode = () => (
+export const QRCode = ({ onSuccess }: { onSuccess: OnSuccessCb }) => (
   <OpenPassportQRcode
-    appName={config.appTitle}
-    scope={config.scope}
-    userId={config.userId}
-    requirements={[['nationality', 'France'], ['older_than', '18']]}
-    onSuccess={(proof: OpenPassport1StepInputs, report: OpenPassportVerifierReport) => {
-      console.log({ proof, report })
-    }}
-    devMode={true}
-    size={300}
+    {...config.openPassport}
+    onSuccess={onSuccess}
   />
 )

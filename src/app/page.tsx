@@ -1,10 +1,10 @@
 'use client'
-import { QRCode } from 'c/QRCode'
+import { FormLogin } from 'c/FormLogin'
 
 export default function Page() {
   return (
     <div>
-      <QRCode />
+      <FormLogin />
     </div>
   )
 }

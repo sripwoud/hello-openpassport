@@ -12,6 +12,8 @@
     "noEmit": true,
     "baseUrl": "src",
     "lib": [
+      "dom",
+      "dom.iterable",
       "ESNext"
     ],
     "target": "ESNext",
@@ -46,7 +48,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "c/*": ["components/*"]
+      "a/*": ["actions/*"],
+      "c/*": ["components/*"],
+      "l/*": ["lib/*"],
+      "l": ["lib"]
     },
     "plugins": [
       {
