@@ -4,7 +4,6 @@ interface Config {
     devMode: boolean
     requirements: [[string, string]]
     scope: string
-    userId: string
     size: number
   }
   cookie: { name: string; expiresAfterDays: number }
@@ -16,7 +15,6 @@ export const config: Config = {
     requirements: [['older_than', '18']],
     devMode: process.env.NODE_ENV === 'development',
     scope: '@hello_openpassport',
-    userId: crypto.randomUUID(),
     size: 300,
   },
   cookie: { expiresAfterDays: 1, name: 'authorized' },
