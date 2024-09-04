@@ -9,7 +9,6 @@ export const useQRCode = ({ sessionId, userId }: { sessionId: Id; userId: Id }) 
   const [qrElement, setQrElement] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
     const qr = QRCodeGenerator.generateQRCode({
       name,
       scope,

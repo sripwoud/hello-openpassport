@@ -9,7 +9,6 @@ export default function ProtectedPage() {
 
   useEffect(() => {
     const authorized = Cookies.get(config.cookie.name)
-    console.log({ authorized })
     if (authorized !== 'true') router.push('/')
   }, [router])
 

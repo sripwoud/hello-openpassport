@@ -6,6 +6,16 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        'web-worker': false,
+      }
+    }
+
+    return config
+  },
 }
 
 const millionConfig = {

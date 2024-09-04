@@ -1,10 +1,8 @@
-'use client'
 import 'tailwindcss/tailwind.css'
 import '../app.css'
+import { Providers } from 'c/Providers'
 import { Layout } from 'components/Layout'
-import { StoreProvider } from 'easy-peasy'
 import { config } from 'l/config'
-import { store } from 'l/store'
 import type { ReactNode } from 'react'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -14,9 +12,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <title>{config.openPassport.appName}</title>
       </head>
       <body>
-        <StoreProvider store={store}>
+        <Providers>
           <Layout>{children}</Layout>
-        </StoreProvider>
+        </Providers>
       </body>
     </html>
   )

@@ -6,12 +6,12 @@ import { useEffect, useState } from 'react'
 import io from 'socket.io-client'
 
 export const useProofSocket = (
-  { sessionId, onSuccess }: { sessionId: Id; onSuccess?: (proof: OpenPassport1StepInputs) => void },
+  sessionId: Id,
 ) => {
   const [proofStep, setProofStep] = useState<ProofStep>(ProofStep.WAITING_FOR_MOBILE)
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>(SocketStatus.DISCONNECTED)
   const { setProof } = useStore()
-  console.log({ proofStep, connectionStatus })
+
   useEffect(() => {
     const socket = io(SOCKET_URL, {
       path: SOCKET_PATH,
@@ -31,10 +31,8 @@ export const useProofSocket = (
           setProofStep(ProofStep.PROOF_GENERATION_STARTED)
           break
         case SocketStatus.PROOF_GENERATED:
-          console.log('setting proof step to proof generated')
           setProofStep(ProofStep.PROOF_GENERATED)
           setProof(proof)
-          onSuccess?.(proof)
           break
       }
     }
@@ -50,7 +48,7 @@ export const useProofSocket = (
       if (socket.connected)
         socket.disconnect()
     }
-  }, [sessionId, setProof, onSuccess])
+  }, [sessionId, setProof])
 
   return { proofStep, connectionStatus }
 }

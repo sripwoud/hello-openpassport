@@ -32,7 +32,7 @@ export function FormLogin() {
     e.preventDefault()
     if (proof === null) return
     try {
-      const { valid } = await verify(proof)
+      const valid = await verify(proof)
       if (valid === false) return
       Cookies.set(config.cookie.name, 'true', { expires: config.cookie.expiresAfterDays })
       router.push('/protected')
@@ -45,9 +45,6 @@ export function FormLogin() {
     <form ref={formRef} onSubmit={handleSubmit}>
       <OpenPassportQRCode
         userId={crypto.randomUUID()}
-        onSuccess={(proof) => {
-          console.log(proof)
-        }}
       />
     </form>
   )
