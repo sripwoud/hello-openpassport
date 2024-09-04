@@ -1,5 +1,5 @@
 'use server'
-import type { OnSuccessCb } from 'l/types'
+import type { OpenPassport1StepInputs } from '@openpassport/sdk'
 import { verifier } from 'l/verifier'
 
-export const verify = async (inputs: Parameters<OnSuccessCb>[0]) => verifier.verify(inputs)
+export const verify = async (inputs: OpenPassport1StepInputs) => verifier.verify(inputs)
